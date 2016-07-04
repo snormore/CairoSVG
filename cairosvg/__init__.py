@@ -64,6 +64,9 @@ def main():
     option_parser.add_option(
         '-H', '--height', default=None, type="float",
         help='height of the parent container in pixels')
+    parser.add_argument(
+        '-s', '--scale', default=None, type="float",
+        help='output scaling factor')
     option_parser.add_option(
         "-o", "--output",
         default="", help="output filename")
@@ -76,7 +79,7 @@ def main():
 
     kwargs = {
         'parent_width': options.width, 'parent_height': options.height,
-        'dpi': float(options.dpi)}
+        'dpi': float(options.dpi), 'scale': options.scale}
 
     if not options.output or options.output == '-':
         # Python 2/3 hack
